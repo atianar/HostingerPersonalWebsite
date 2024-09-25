@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Social Media</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+.body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('SocialMediaBackground.png');
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #4d008c;
+  color: white;
+}
+
+.btnbtn-infobtn-lg {
+  float: right;
+  padding: 16px;
+}
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color:black;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Active/current link */
+.navbar a.active {
+  background-color: #4d008c;
+  color: white;
+}
+
+.row .icon{
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 22px;
+  display: inline-block;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: #333;
+  text-decoration: none;
+}
+.row .tooltip {
+  position: absolute;
+  top: 0;
+  line-height: 1.5;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.row .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.row .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.row .icon:hover span,
+.row .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+.row .facebook:hover,
+.row .facebook:hover .tooltip,
+.row .facebook:hover .tooltip::before {
+  background-color: #3b5999;
+  color: #ffffff;
+}
+.row .snapchat:hover,
+.row .snapchat:hover .tooltip,
+.row .snapchat:hover .tooltip::before {
+  background-color: #e6e21d;
+  color: #ffffff;
+}
+.row .instagram:hover,
+.row .instagram:hover .tooltip,
+.row .instagram:hover .tooltip::before {
+  background-color: #e1306c;
+  color: #ffffff;
+}
+.row .github:hover,
+.row .github:hover .tooltip,
+.row .github:hover .tooltip::before {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="index.html">
+    <span class="glyphicon glyphicon-log-out"></span>
+  </a>
+    <h1>AcademicLife: 2024 - 2025</h1>
+    <p>A <b>responsive</b> blog website created to document my progress in my internship for the first time.</p>
+</div>
+<div class="navbar">
+    <a href="index4.html">Home(Posts)</a>
+    <a href="index5.html">Contact Me</a>
+    <a href="index6.html">Report Issues</a>
+    <a href="#" active >Social Media</a>
+    <div class="dropdown">
+      <button class="dropbtn">Table of Contents
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="index4.html">Home(Posts)</a>
+        <a href="index5.html">Contact Me</a>
+        <a href="index6.html">Report Issues</a>
+      </div>
+    </div>
+    <input type="text" placeholder="Search..." class="form-control" style="margin: 10px; width: auto; display: inline-block;">
+  </div>
+<div class="container">
+  <div style="text-align:center">
+    <h2>Social Media Links </h2>
+    <p>Follow me on these platforms for more information and upadates on this website and just to get to know me a little better.</p>
+</div>
+<div class="row">
+  <div style="text-align:center">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
+      <a href="https://www.facebook.com/atiana.ramos.10?mibextid=LQQJ4d" class="icon facebook">
+        <div class="tooltip">Facebook</div>
+        <span><i class="fab fa-facebook"></i></span>
+      </a>
+      <a href="https://snapchat.com/t/C7YwYagQ" class="icon snapchat">
+        <div class="tooltip">Snapchat</div>
+        <span><i class="fab fa-snapchat"></i></span>
+      </a>
+      <a href="https://www.instagram.com/atiana1212?igsh=MTdpbHBoMzNhMG16eA%3D%3D&utm_source=qr" class="icon instagram">
+        <div class="tooltip">Instagram</div>
+        <span><i class="fab fa-instagram"></i></span>
+     </a>
+      <a href="https://github.com/atianar" class="icon github">
+        <div class="tooltip">Github</div>
+        <span><i class="fab fa-github"></i></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <h2>Credits</h2>
+  <p>Written and Created by Atiana Ramos</p>
+</div>
+</body>
+</html>
