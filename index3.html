@@ -1,94 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-/* Style all input fields */
-input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-/* Style the submit button */
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-}
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
 
-/* Style the container for inputs */
-.container {
-  background-color: #f1f1f1;
-  padding: 20px;
-}
+        h3 {
+            text-align: center;
+            color: rgb(38, 151, 243);
+        }
 
-/* The message box is shown when the user clicks on the password field */
-#message {
-  display:none;
-  background: #f1f1f1;
-  color: #000;
-  position: relative;
-  padding: 20px;
-  margin-top: 10px;
-}
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: rgb(38, 151, 243);
+        }
 
-#message p {
-  padding: 10px 35px;
-  font-size: 18px;
-}
+        input[type="text"], input[type="password"], input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            background: #f9f9f9;
+            transition: background 0.3s;
+        }
 
-/* Add a green text color and a checkmark when the requirements are right */
-.valid {
-  color: green;
-}
+        input[type="text"]:focus, input[type="password"]:focus {
+            background-color: #e6e6e6;
+            outline: none;
+        }
 
-.valid:before {
-  position: relative;
-  left: -35px;
-  content: "✔";
-}
+        input[type="submit"] {
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
 
-/* Add a red text color and an "x" when the requirements are wrong */
-.invalid {
-  color: red;
-}
+        input[type="submit"]:hover {
+            opacity: 0.9;
+        }
 
-.invalid:before {
-  position: relative;
-  left: -35px;
-  content: "✖";
-}
-</style>
+        #message {
+            display: none;
+            background: #f1f1f1;
+            color: #000;
+            position: relative;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        #message p {
+            padding: 10px 35px;
+            font-size: 14px;
+        }
+
+        .valid {
+            color: green;
+        }
+
+        .valid:before {
+            position: relative;
+            left: -35px;
+            content: "✔";
+        }
+
+        .invalid {
+            color: red;
+        }
+
+        .invalid:before {
+            position: relative;
+            left: -35px;
+            content: "✖";
+        }
+    </style>
 </head>
 <body>
 
-<h3>Password Validation</h3>
-<p>Try to submit the form.</p>
-
 <div class="container">
-  <form action="index.html">
-    <label for="uname">Username</label>
-    <input type="text" id="uname" name="uname" required>
+    <h3>Password Validation</h3>
+    <p>Try to submit the form.</p>
+    <form action="index.html">
+        <label for="uname">Username</label>
+        <input type="text" id="uname" name="uname" required>
 
-    <label for="psw">Password</label>
-    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-    
-    <input type="submit" value="Submit">
-  </form>
+        <label for="psw">Password</label>
+        <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 characters" required>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="message">
+        <h3>Password must contain the following:</h3>
+        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+    </div>
 </div>
 
-<div id="message">
-  <h3>Password must contain the following:</h3>
-  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-  <p id="number" class="invalid">A <b>number</b></p>
-  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-</div>
-				
 <script>
 var myInput = document.getElementById("psw");
 var letter = document.getElementById("letter");
@@ -96,57 +134,73 @@ var capital = document.getElementById("capital");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
 
-// When the user clicks on the password field, show the message box
+// Show the message box when the user focuses on the password field
 myInput.onfocus = function() {
-  document.getElementById("message").style.display = "block";
+    document.getElementById("message").style.display = "block";
 }
 
-// When the user clicks outside of the password field, hide the message box
+// Hide the message box when the user clicks outside of the password field
 myInput.onblur = function() {
-  document.getElementById("message").style.display = "none";
+    document.getElementById("message").style.display = "none";
 }
 
-// When the user starts to type something inside the password field
+// Validate the password requirements
 myInput.onkeyup = function() {
-  // Validate lowercase letters
-  var lowerCaseLetters = /[a-z]/g;
-  if(myInput.value.match(lowerCaseLetters)) {  
-    letter.classList.remove("invalid");
-    letter.classList.add("valid");
-  } else {
-    letter.classList.remove("valid");
-    letter.classList.add("invalid");
-  }
-  
-  // Validate capital letters
-  var upperCaseLetters = /[A-Z]/g;
-  if(myInput.value.match(upperCaseLetters)) {  
-    capital.classList.remove("invalid");
-    capital.classList.add("valid");
-  } else {
-    capital.classList.remove("valid");
-    capital.classList.add("invalid");
-  }
+    // Validate lowercase letters
+    var lowerCaseLetters = /[a-z]/g;
+    letter.classList.toggle("valid", myInput.value.match(lowerCaseLetters));
+    letter.classList.toggle("invalid", !myInput.value.match(lowerCaseLetters));
 
-  // Validate numbers
-  var numbers = /[0-9]/g;
-  if(myInput.value.match(numbers)) {  
-    number.classList.remove("invalid");
-    number.classList.add("valid");
-  } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
-  }
-  
-  // Validate length
-  if(myInput.value.length >= 8) {
-    length.classList.remove("invalid");
-    length.classList.add("valid");
-  } else {
-    length.classList.remove("valid");
-    length.classList.add("invalid");
-  }
+    // Validate capital letters
+    var upperCaseLetters = /[A-Z]/g;
+    capital.classList.toggle("valid", myInput.value.match(upperCaseLetters));
+    capital.classList.toggle("invalid", !myInput.value.match(upperCaseLetters));
+
+    // Validate numbers
+    var numbers = /[0-9]/g;
+    number.classList.toggle("valid", myInput.value.match(numbers));
+    number.classList.toggle("invalid", !myInput.value.match(numbers));
+
+    // Validate length
+    length.classList.toggle("valid", myInput.value.length >= 8);
+    length.classList.toggle("invalid", myInput.value.length < 8);
 }
+
+let userData = {}; // Object to store user data
+
+function registerUser(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('psw').value;
+    const username = document.getElementById('uname').value; // Assuming username is part of registration
+
+    userData = {
+        username,
+        email,
+        password,
+    };
+
+    alert('Registration successful!');
+}
+
+function loginUser(event) {
+    event.preventDefault();
+    const username = document.getElementById('uname').value;
+    const password = document.getElementById('psw').value;
+
+    if (userData.username === username && userData.password === password) {
+        alert('Login successful!');
+    } else {
+        alert('Invalid credentials.');
+    }
+}
+
+// Store user data
+localStorage.setItem('userData', JSON.stringify(userData));
+
+// Retrieve user data
+userData = JSON.parse(localStorage.getItem('userData'));
+
 </script>
 </body>
 </html>
