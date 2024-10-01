@@ -4,83 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
         form {
-            border: 3px solid #f1f1f1;
-            }
-
-        /* Full-width inputs */
-        input[type=text], input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
+            max-width: 400px;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            padding: 20px;
         }
 
-        /* Set a style for all buttons */
-        button {
-            background-color: #04AA6D;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        /* Add a hover effect for buttons */
-        button:hover {
-            opacity: 0.8;
-        }
-
-        /* Extra style for the cancel button (red) */
-        .cancelbtn {
-            width: auto;
-            padding: 10px 18px;
-            background-color: #f44336;
-        }
-
-        /* Center the avatar image inside this container */
         .imgcontainer {
             text-align: center;
             margin: 24px 0 12px 0;
         }
 
-        /* Avatar image */
-        .img.avatar {
+        .avatar {
             width: 40%;
             border-radius: 50%;
         }
 
-        /* Add padding to containers */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background: #f9f9f9;
+            transition: background 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            background-color: #e6e6e6;
+            outline: none;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            background-color: #ffffff00; /* Updated to a neutral color */
+            color: rgb(38, 151, 243);
+            border-radius: 5px;
+            text-align: left;
+            padding: 10px;
+            transition: background 0.3s;
+        }
+
+        label:hover {
+            background-color: none; /* Darker shade for hover effect */
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .cancelbtn {
+            background-color: #f44336; /* Red for cancel */
+            width: auto;
+            padding: 10px 18px;
+            border-radius: 5px;
+        }
+
         .container {
             padding: 16px;
         }
 
-        /* The "Forgot password" text */
-        span.psw {
-            float: right;
-            padding-top: 16px;
-        }
-        span.register {
-            float: right;
-            padding-top: 16px;
-            padding-right: 15px;
-            padding-up: 100px;
+        .psw, .register {
+            display: block;
+            text-align: center;
+            margin: 10px 0;
         }
 
-        /* Change styles for span and cancel button on extra small screens */
+        a {
+            color: #04AA6D; /* Link color */
+        }
+
         @media screen and (max-width: 300px) {
-            span.psw {
-                display: block;
-                float: none;
-            }
-            span.register {
-                display: block;
-                float: none;
-            }
             .cancelbtn {
                 width: 100%;
             }
@@ -88,28 +111,65 @@
     </style>
 </head>
 <body>
-    <form action="index4.html" method="POST">
+    <form onsubmit="loginUser(event)" action="index4.html" method="POST">
         <div class="imgcontainer">
-          <img src="/Pictures/avatar.png" width="256" height="256" alt="Avatar" class="avatar" title="Avatar free icon">
+            <img src="#" width="256" height="256" alt="Avatar" class="avatar" title="Avatar free icon">
         </div>
         <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
-      
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-      
-          <button type="submit">Login</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+        
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+        
+            <button type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
         </div>
-      
-        <div class="container" style="background-color:#f1f1f1">
-          <button type="button" class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="index3.html">password?</a></span>
-          <span class="register">Don't have a <a href="index2.html">Account?</a></span>
+        
+        <div class="container" style="background-color:#f1f1f1; text-align: center;">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="index3.html">password?</a></span>
+            <span class="register">Don't have an <a href="index2.html">Account?</a></span>
         </div>
-      </form>   
+    </form>
+
+    <script>
+        let userData = {}; // Object to store user data
+        
+        function registerUser(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('psw').value;
+            const username = document.getElementById('uname').value; // Assuming username is part of registration
+        
+            userData = {
+                username,
+                email,
+                password,
+            };
+        
+            alert('Registration successful!');
+        }
+        
+        function loginUser(event) {
+            event.preventDefault();
+            const username = document.getElementById('uname').value;
+            const password = document.getElementById('psw').value;
+        
+            if (userData.username === username && userData.password === password) {
+                alert('Login successful!');
+            } else {
+                alert('Invalid credentials.');
+            }
+        }
+        // Store user data
+localStorage.setItem('userData', JSON.stringify(userData));
+
+// Retrieve user data
+userData = JSON.parse(localStorage.getItem('userData'));
+
+    </script>
 </body>
 </html>
